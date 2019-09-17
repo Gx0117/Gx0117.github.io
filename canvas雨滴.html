@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        canvas{
+            background-color: #000;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+
+    <script>
+        let canvas = document.querySelector("canvas");
+        let canCon = canvas.getContext("2d");
+        let y = 0;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // setInterval(function(){
+        //     let random = Math.floor(Math.random()*1920);
+        //     rain(random);
+        // },500)
+        rain();
+        function rain(random){
+            setInterval(function(){
+                canCon.beginPath();
+                canCon.fillStyle = "rgba(0,0,0,0.1)";
+                canCon.fillRect(0,0,canvas.width,canvas.height);
+                canCon.fillStyle = "#40E0D0";
+                canCon.fillRect(1000,y+=3,2,20);
+                if(y >= 850){
+                    clearInterval(this);
+                    canCon.fillStyle = "#000";
+                    canCon.fillRect(0,0,canvas.width,canvas.height);
+                }
+            },1000/60)
+        }
+        
+    </script>
+</body>
+</html>
