@@ -44,7 +44,7 @@
             init(){
                 this.y = 0; // 雨滴初始化 y 轴坐标
                 this.x = random(0,w) // 雨滴初始化 x 轴坐标
-                this.v = random(6,8); // 初始化雨滴下落速度
+                this.v = random(5,7); // 初始化雨滴下落速度
                 this.h = random(0.75*h,0.85*h); // 雨滴绽放位置
                 this.r = 2; // 雨滴绽放最小半径
                 this.maxR = random(30,40); // 雨滴绽放最大半径
@@ -89,14 +89,17 @@
                 },200*i);
             }
         }
-        createRain(50);
+        createRain(30);
 
         setInterval( ()=>{
-            canCon.fillStyle = "rgba(0,0,0,0.3)";
+            canCon.fillStyle = "rgba(0,0,0,0.2)";
             canCon.fillRect(0,0,w,h);
             for(let item of rainArr){
                 item.move();
             }
+            canCon.fillStyle = "rgba(255,182,193,0.1)";
+            canCon.font = "10px 楷体";
+            canCon.fillText("高鑫制作",w*0.9,h*0.99);
         }, 1000/60);
     </script>
 </body>
